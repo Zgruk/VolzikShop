@@ -24,9 +24,7 @@
             <tr>
                 <td>
                     <a href="{{ product.get_absolute_url }}">
-                    <img src="{% if product.image1 %}{{ product.image1.url}}
-                              {% else %}{% static 'img/no_image.png' %}
-                              {% endif %}">
+                    <img src="{% if product.image1 %}{{ product.image1.url}}{% else %}{% static 'img/no_image.png' %}{% endif %}">
                     </a>
                 </td>
                 <td>{{ product.name }}</td>
@@ -50,8 +48,9 @@
         </tbody>
     </table>
     <p class="text-right">
-        <a href="{% url 'shop:product_list' %}" class="button
-        light">Продолжить шоппинг</a>
+        <a href="{% url 'shop:product_list' %}" class="button light">
+            Продолжить шоппинг
+        </a>
     <a href="#" class="button">Оформить заказ</a>
     </p>
 {% endblock %}
