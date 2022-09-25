@@ -9,7 +9,7 @@
 
 {% block content %}
     <div id="sidebar">
-        <h3>Categories</h3>
+        <h3>Категории</h3>
         <ul>
             <li {% if not category %}class="selected"{% endif %}>
                 <a href="{% url 'shop:product_list' %}">Все категории</a>
@@ -24,7 +24,7 @@
     </div>
     <div id="main" class="product-list">
         <h1>{% if category %}{{ category.name }}
-            {% else %}Products
+            {% else %}Товары
             {% endif %}
         </h1>
         {% for product in products %}

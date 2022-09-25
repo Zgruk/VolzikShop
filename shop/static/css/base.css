@@ -193,8 +193,15 @@ ul.errorlist {
 }
 
 .product-list .item img {
-    width:100%;
-    margin-bottom:8px;
+    width: 100%;
+    max-width: 350px;
+    height: 300px;
+    object-fit: cover;
+    border-radius: 10px;
+    
+    
+    /* width:100%;
+    margin-bottom:8px; */
 }
 
 .product-detail {
@@ -208,9 +215,15 @@ ul.errorlist {
 }
 
 .product-detail img {
-    width:40%;
+    width: 100%;
+    max-width: 350px;
+    height: 300px;
+    object-fit: cover;
+    border-radius: 10px;
+
+    /* width:40%;  */
     float:left;
-    padding:0 20px 20px 0;
+    margin:0 20px 20px 0;
 }
 
 .product-detail h1 {
