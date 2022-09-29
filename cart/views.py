@@ -34,4 +34,14 @@ def cart_detail(request):
             'quantity': item['quantity'],
             'override': True})
     return render(request, 'cart/detail.html', {'cart': cart})
+
+# def check_the_cart(request):
+#     cart = Cart(request)
+#     problem_books = []
+#     for book in cart:
+#         if book.quantity > book.book.quantity:
+#             problem_books.append(book)
+#     if problem_books:
+#         return render(request, "cart/fix_cart.html", {'books': problem_books})
+#     return redirect('payment')
     
