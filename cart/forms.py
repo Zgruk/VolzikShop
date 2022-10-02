@@ -3,7 +3,7 @@ from statistics import quantiles
 from django import forms
 
 
-PRODUCT_QUANTITY_CHOICES = [(i, str(i)) for i in range(1, 6)]
+# PRODUCT_QUANTITY_CHOICES = [(i, str(i)) for i in range(1, 6)]
 
 class CartAddProductForm(forms.Form):
     # quantity = forms.TypedChoiceField(
