@@ -20,7 +20,7 @@
             </a>
         </h2>
         <p class="price">{{ product.price }} рублей</p>
-        <form action="{% url 'cart:cart_add' product.id %}" method="post">
+        <form class="quantity" action="{% url 'cart:cart_add' product.id %}" method="post">
             {{ cart_product_form }}
             {% csrf_token %}
             <input type="submit" value="Добавить в корзину">

@@ -214,6 +214,11 @@ ul.errorlist {
     font-weight:bold;
 }
 
+.product-detail .quantity {
+    width: 30;
+}
+
+
 .product-detail img {
     width: 100%;
     max-width: 350px;
