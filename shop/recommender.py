@@ -11,23 +11,24 @@ r = redis.Redis(host=settings.REDIS_HOST,
 class Recommender(object):
 
     def get_product_key(self, id):
-        return f'product: {id}:purchased_with'
+        return f'product:{id}:purchased_with'
 
-    def product_bought(self, products):
+    def products_bought(self, products):
         product_ids = [p.id for p in products]
         for products_id in product_ids:
             for with_id in product_ids:
                 # get the other products bought with each product
                 if products_id != with_id:
                     # increment score for product purchased together
-                    r.zincrby(self.get_product_key(products_id, 1 , with_id))
+                    r.zincrby(self.get_product_key(products_id), 1 , with_id)
 
-    def suggest_product_for(self, products, max_results=6):
+    def suggest_products_for(self, products, max_results=6):
+        # products here is a list of products to get recomendations for
         product_ids = [p.id for p in products]
         if len(products) == 1:
             # only 1 product
             suggestions = r.zrange(
-                        self.get_product_key(product_ids(0)), 
+                        self.get_product_key(product_ids[0]), 
                         0, -1, desc=True)[:max_results]
         else:
             # generate a temporary key
@@ -49,3 +50,7 @@ class Recommender(object):
         suggested_products = list(Product.objects.filter(id__in=suggested_products_ids))
         suggested_products.sort(key=lambda x: suggested_products_ids.index(x.id))
         return suggested_products
+
+    def clear_purchases(self):
+        for id in Product.objects.values_list('id', flat=True):
+            r.delete(self.get_product_key(id))
