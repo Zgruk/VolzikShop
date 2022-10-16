@@ -1,6 +1,3 @@
-from email.policy import default
-from logging import PlaceHolder
-from statistics import quantiles
 from django import forms
 
 
