@@ -1,5 +1,6 @@
 from pathlib import Path
 import os
+from urllib import request
 import braintree
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -151,3 +152,14 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'static/')
 REDIS_HOST = 'localhost'
 REDIS_PORT = 6379
 REDIS_DB = 1
+
+
+# request.session{'cart': {'product_id1': {'quantity': quantity1,
+#                                          'price': price1},
+#                          'product_id2': {'quantity': quantity2,
+#                                          'price': price2},
+#                          'product_id3': {'quantity': quantity3,
+#                                          'price': price3}
+                            
+#                         }
+#                 }
