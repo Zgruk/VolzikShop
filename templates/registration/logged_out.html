@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+<div class="container">
+    <div>
+        <p>Вы вышли из системы</p>
+        <a href="{% url 'login' %}">Нажмите здесь, чтобы снова войти в систему</a>
+    </div>
+</div>
+    
+{% endblock %}

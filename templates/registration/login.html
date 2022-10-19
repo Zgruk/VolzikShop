@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}Registration{% endblock %}
+
+{% block content %}
+{% if form.errors %}
+<p><strong>Ошибка!</strong> Неправильный логин или пароль. Пожалуйста, попробуйте еще.</p>
+{% endif %}
+
+<h4>Введите данные для входа</h4>
+<form method="post" action="{% url 'login' %}">
+    {% csrf_token %}
+    <table>
+        <tr>
+            <td>{{ form.username.label_tag }}</td>
+            <td>{{ form.username }}</td>
+        </tr>
+            
+        <tr>
+            <td>{{ form.password.label_tag}}</td>
+            <td>{{ form.password }}</td>
+        </tr>
+    </table>
+
+    <div>
+        <p><a href="{% url 'password_reset' %}">Забыли свой пароль?</a></p>
+        <p><input type="submit" value="Войти" /></p>
+    </div>
+</form>
+
+{% endblock %}
+
+<!-- <form method="post" action="{% url 'signin' %}">
+</form> -->
