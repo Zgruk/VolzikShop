@@ -14,6 +14,7 @@
         {% if product.image3 %}<img src="{{ product.image3.url }}">{% endif %}
         {% if product.image4 %}<img src="{{ product.image4.url }}">{% endif %}
         {% if product.image5 %}<img src="{{ product.image5.url }}">{% endif %}
+        <h1>{{ product.name }}</h1>
         <h2>
             <a href="{{ product.category.get_absolute_url }}">
             {{ product.category }}
@@ -26,5 +27,20 @@
             <input type="submit" value="Добавить в корзину">
         </form>
         {{ product.description|linebreaks }}
+
+        {% if recommended_products %}
+            <div class="recommendations">
+                <h3>Люди, которые купили этот товар, также купили это</h3>
+                {% for p in recommended_products %}
+                <div class="item">
+                    <a href="{{ p.get_absolute_url }}">
+                    <img src="{% if p.image1 %}{{ p.image1.url }}{% else %}
+                    {% static 'img/no_image.png' %}{% endif %}">
+                    </a>
+                    <p><a href="{{ p.get_absolute_url }}">{{ p.name }}</a></p>
+                </div>
+                {% endfor %}
+            </div>
+        {% endif %}
     </div>
 {% endblock %}

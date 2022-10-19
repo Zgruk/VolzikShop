@@ -340,6 +340,10 @@ ul.errorlist {
     margin-right:10px;
 }
 
+.recommendations.cart .item {
+    margin-right:10px;
+}
+
 .recommendations.cart img {
     width:120px;
 }
