@@ -142,6 +142,11 @@ ul.errorlist {
     padding-top:4px;
 }
 
+.user_auth {
+    float:right;
+    padding-top:4px;
+}
+
 #content {
     padding:0 100px;
     overflow:hidden;
