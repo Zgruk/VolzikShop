@@ -7,6 +7,8 @@
         <meta charset="utf-8" />
         <title>{% block title %}Volzik shop{% endblock %}</title>
         <link href="{% static 'css/base.css' %}" rel="stylesheet">
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css"
+    integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
     </head>
     <body>
         <div id="header">
@@ -22,6 +24,7 @@
                     <a href="{% url 'login' %}">Войти</a>
                     {% with total_items=cart|length %}
                         {% if total_items > 0 %}
+                        <i class="fa-light fa-cart-shopping"></i>
                             Ваша корзина:
                             <a href="{% url 'cart:cart_detail' %}">
                                 {{ total_items }} ед.,
